@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Quote
+{% endblock %}
+
+{% block main %}
+
+    <form action="/quote" method='post'>
+        
+        <div class="form-group"> 
+        
+            <input autocomplete="off" autofocus required name="symbol" type="text" placeholder="Simbolo"   onkeyup="this.value = this.value.toUpperCase();">
+        
+        </div>
+
+            <button class="btn btn-primary" type="submit">Cotar</button>
+
+    </form>
+
+{% endblock %}

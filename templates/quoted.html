@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Quoted
+{% endblock %}
+
+{% block main %}
+
+    <p>Uma ação da {{ name }} ( {{ symbol }} ) custa $ {{ price }}</p>
+
+    <a href="/buy">Comprar</a>
+    
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Main
+{% endblock %}
+
+{% block main %}
+
+
+    <table class='table table-striped'>
+        <!-- titulos -->
+        <thead>
+            <tr>
+                <th>Simbolo</th>
+                <th>Nome</th>
+                <th>Açõese</th>
+                <th>Preço Unitário ($)</th>
+                <th>TOTAL ($)</th>
+            </tr>
+        </thead>
+
+        <!-- dinheiro total, vai ficar no foot(pe) da table -->
+        <tfoot>
+            <tr>
+                <td colspan="4" style="font-weight: bold; text-align: end;">Saldo Total</td>
+                
+                <td style="font-weight: bold;">$ {{ total }}</td>
+            </tr>
+        </tfoot>
+    
+        <!-- corpo da table -->
+        <tbody>
+
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock.symbol }}</td>
+                    <td>{{ quotes[stock.symbol]['name'] }}</td>
+                    <td>{{ stock.total_shares }}</td>
+                    <td>${{ quotes[stock.symbol]['price'] }}</td>
+                    <td>${{ ( quotes[stock.symbol]['price'] * stock.total_shares ) }}</td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+        <tr>
+            <td colspan="4" style="font-weight: bold; text-align: end;">Saldo restante</td>
+            <td style="font-weight: bold;">$ {{ cash_remaining }}</td>
+        </tr>
+    
+    </table>
+
+
+
+{% endblock %}

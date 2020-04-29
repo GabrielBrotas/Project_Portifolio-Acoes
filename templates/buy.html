@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form action='/buy' method="post">
+        
+        <div class='form-group'>
+            <!-- required torna obrigatorio escrever alguma coisa para clicar no submit -->
+            <!-- autofocus vai fazer o input pegar foco quando a pagina for carregada -->
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Simbolo" type="text" required onkeyup="this.value = this.value.toUpperCase();">
+        </div>
+
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Quantidade" type="number" min="1" required>
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Comprar</button>
+        
+    </form>
+
+
+{% endblock %}

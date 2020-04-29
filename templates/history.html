@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+   history
+
+{% endblock %}
+
+
+{% block main %}
+
+    <table class='table table-striped'>
+        
+        <th>Simbolo</th>
+        <th>Ações</th>
+        <th>Preço Unitário</th>
+        <th>Transação</th>
+
+
+        {% for transitions in history %}
+
+            <tr>
+                <td>{{ transitions.symbol }}</td>
+                <td>{{ transitions.shares }}</td>
+                <td>{{ transitions.price_per_share }}</td>
+                <td>{{ transitions.created_at }}</td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+
+
+{% endblock %}
